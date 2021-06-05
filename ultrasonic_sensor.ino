@@ -10,7 +10,7 @@
 #define trigPin 13
 #define echoPin 12
 
-LiquidCrystal lcd(1, 2, 4, 5, 6, 7); // (rs, enable, d4, d5, d6, d7)
+LiquidCrystal lcd(1, 2, 4, 5, 6, 7); // (rs, enable, d4, d5, d6, d7) // Creating the lcd display object
 
 void setup() {
   lcd.begin(16,2);
@@ -30,13 +30,13 @@ void loop() {
   duration = pulseIn(echoPin, HIGH);
   distance = (duration/2) / 29.1;
 
-  // changing led statuses
-  if (distance >= 450 || distance <= 0) {  // This is where the LED On/Off happens
+  // changing display status
+  if (distance >= 450 || distance <= 0) {  // If the distance is outside the sensor's range
     lcd.print("Dist: N/A");
     delay(750);
     lcd.clear();
   }
-  else {
+  else { // If the distance is in the sensor's range
     lcd.print("Dist: ");
     lcd.print(distance);
     lcd.print("cm");
