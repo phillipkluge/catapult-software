@@ -1,4 +1,4 @@
-# catapult-software
+# EIC Catapult Project:
 A place to store all code needed for the EIC catapult project.
 All the hardware used in this project was acquired from:
 
