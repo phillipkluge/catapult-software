@@ -15,4 +15,4 @@ For ultrasonic_sensor.ino:
     -The sensor has a maximum range of 4.50m, anything greater than that and it can not accurately calculate the distance.
     -To see a setup of the electronics, see the image labelled "ultrasonic-sensor-image.jpg." I am working on getting a proper diagram drawn up.
 
-If you need to contact me for any reason, do so over Discord: @PhillipJK #8190 or email: kluge@ualberta.ca
+If you need to contact me for any reason, do so over Discord: @PhillipJK#8190 or email: kluge@ualberta.ca
