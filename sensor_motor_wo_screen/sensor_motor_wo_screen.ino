@@ -61,7 +61,7 @@ void loop() {
   int maxdist = 30; // the maximum distance the sensor will detect an object (in cm, with a max of 450)
   int steps = 12; // number of steps the motor will take for every sensor check (out of 2048 for full rotation)
 
-  // step the motor, calculate distance, and print to screen
+  // step the motor, calculate distance, and detects if an object is found
   myStepper.step(steps);
   distance = calculate();
   detectobj = detect(distance, maxdist);
