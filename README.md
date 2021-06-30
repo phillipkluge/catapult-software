@@ -15,4 +15,11 @@ For ultrasonic_sensor.ino:
     -The sensor has a maximum range of 4.50m, anything greater than that and it can not accurately calculate the distance.
     -To see a setup of the electronics, see the image labelled "ultrasonic-sensor-image.jpg." I am working on getting a proper diagram drawn up.
 
+For sensor_motor_w_screen:
+
+	-Continually turns the motor for the base of the catapult until the sensor finds an object within a certain number of centimers (default: 30)
+	-Stops turning once an object has been found
+	-Outputs object distance and max distance to the display
+	-Wiring instructions and reference pics are included in the folder
+
 If you need to contact me for any reason, do so over Discord: @PhillipJK#8190 or email: kluge@ualberta.ca
