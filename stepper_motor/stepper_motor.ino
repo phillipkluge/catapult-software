@@ -1,5 +1,6 @@
 /*
 Made for the 28BYJ-48 stepper motor
+Contact me on discord: PhillipJK#8190
 */
 
 #include <Stepper.h>
