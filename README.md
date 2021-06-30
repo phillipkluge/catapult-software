@@ -22,4 +22,9 @@ For sensor_motor_w_screen:
 	-Outputs object distance and max distance to the display
 	-Wiring instructions and reference pics are included in the folder
 
+For sensor_motor_wo_screen:
+
+	-Identical to the code that includes the screen, just with it disabled so there is no need to wire that up
+	-This makes it easier to wire, but harder to see what is happening and to debug it if there are any problems
+
 If you need to contact me for any reason, do so over Discord: @PhillipJK#8190 or email: kluge@ualberta.ca
