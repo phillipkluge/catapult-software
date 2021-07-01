@@ -55,26 +55,18 @@ void setup() {
  */
 void loop() {
   long distance; // the current distance the sensor finds
-  bool detectobj; // if an object has been found
+  bool detectobj = true; // if an object has been found
 
   // CONFIGURE THESE VARIABLES TO YOUR LIKING
   int maxdist = 30; // the maximum distance the sensor will detect an object (in cm, with a max of 450)
   int steps = 12; // number of steps the motor will take for every sensor check (out of 2048 for full rotation)
 
-  // step the motor, calculate distance, and detects if an object is found
-  myStepper.step(steps);
-  distance = calculate();
-  detectobj = detect(distance, maxdist);
+  distance = calculate(); // finds the distance to the nearest object
 
-  // if an object was detected, stop the motor as long as it sees the object
-  if (detectobj) {
-    while (true) {
-      distance = calculate();
-      detectobj = detect(distance, maxdist);
+  detectobj = detect(distance, maxdist); // finds if there is an object within the set distance
 
-      if (detectobj == false) { // if the sensor no longer sees the object, go back to the start of the loop
-        break;
-      }
-    }
+  // if there is no object detected, spin the base of the catapult further
+  if (!detectobj) {
+    myStepper.step(steps);
   }
 }

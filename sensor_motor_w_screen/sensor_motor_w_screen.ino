@@ -64,7 +64,6 @@ bool print_detect(long distance, int maxdist, String prefix) {
   lcd.print("MaxDist: ");
   lcd.print(maxdist);
   lcd.print("cm");
-  delay(10);
   lcd.setCursor(0,0);
   
   return detectobj;
@@ -85,26 +84,24 @@ void setup() {
  */
 void loop() {
   long distance; // the current distance the sensor finds
-  bool detectobj; // if an object has been found
+  bool detectobj = true; // if an object has been found
+  String prefix = "Dist: "; // the word on the display before the distance measurement
 
   // CONFIGURE THESE VARIABLES TO YOUR LIKING
-  int maxdist = 30; // the maximum distance the sensor will detect an object (in cm, with a max of 450)
-  int steps = 12; // number of steps the motor will take for every sensor check (out of 2048 for full rotation)
+  const int maxdist = 30; // the maximum distance the sensor will detect an object (in cm, with a max of 450)
+  const int steps = 12; // number of steps the motor will take for every sensor check (out of 2048 for full rotation)
+  
+  distance = calculate(); // finds the distance to the nearest object
 
-  // step the motor, calculate distance, and print to screen
-  myStepper.step(steps);
-  distance = calculate();
-  detectobj = print_detect(distance, maxdist, "Dist: ");
+  // changing prefixes if there is an object within the set distance
+  if (distance <= maxdist) {
+    prefix = "Stop: ";
+  }
+  
+  detectobj = print_detect(distance, maxdist, prefix); // finds if there is an object within the set distance, also prints to display
 
-  // if an object was detected, stop the motor as long as it sees the object
-  if (detectobj) {
-    while (true) {
-      distance = calculate();
-      detectobj = print_detect(distance, maxdist, "STOP: ");
-
-      if (detectobj == false) {
-        break;
-      }
-    }
+  // if there is no object detected, spin the base of the catapult further
+  if (!detectobj) {
+    myStepper.step(steps);
   }
 }
