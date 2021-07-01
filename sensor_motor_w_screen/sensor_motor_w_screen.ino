@@ -1,5 +1,5 @@
 /*
- * SETUP AND WIRING INSTRUCTIONS ARE INCLUDED IN THE SETUP.md FILE
+ * SETUP AND WIRING INSTRUCTIONS ARE INCLUDED IN THE SETUP.txt FILE
  * REVISED 2021/06/29
  */
 #include <LiquidCrystal.h>
@@ -42,7 +42,7 @@ bool print_detect(long distance, int maxdist, String prefix) {
     detectobj = false;
   }
   
-  if (distance >= 10 && distance < 100) { // if the distancee is a two digit number
+  if (distance >= 10 && distance < 100) { // if the distance is a two digit number
     lcd.setCursor(7,0);
     lcd.print(distance);
   }
